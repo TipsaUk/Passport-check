@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    username: AndE
+    password: Gpt22190415
+    url: jdbc:mysql://localhost:3306/check_passport?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+load:
+  urlToFilePassports: https://guvm.mvd.ru/upload/expired-passports/list_of_expired_passports.csv.bz2
+  schedule: "0 25 00 * * *"
+logging:
+  level:
+    root: info
+  file:
+      name: application.log
+  logback:
+    rollingpolicy:
+      max-history: 20
